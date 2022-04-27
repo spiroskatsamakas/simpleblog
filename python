@@ -1,0 +1,4 @@
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, theblog
+Running migrations:
+  Applying theblog.0003_post_published_date... OK
