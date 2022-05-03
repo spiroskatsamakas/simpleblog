@@ -3,9 +3,7 @@
 
 {% block content %}
 		
-		
-
-
+	
 
 
 <h1>Post</h1>
@@ -13,7 +11,11 @@
 <ul>
 {% for post in object_list %}
 	<li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a> - {{ post.author.first_name }}
-	{{ post.author.last_name }}<br/>
+	{{ post.author.last_name }} - {{post.published_date}}
+	- <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a>
+	- <a href="{% url 'update_post' post.pk %}">(Edit)</a> 
+	- <a href="{% url 'delete_post' post.pk %}">(Delete)</a> 
+	<br/>
 	{{ post.body }}</li>
 {% endfor%}
 </ul>
