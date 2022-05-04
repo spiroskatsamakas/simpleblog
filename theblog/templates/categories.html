@@ -6,24 +6,18 @@
 
 <h1>{{ cats }}</h1>
 
-<ul>
+
 {% for post in category_posts %}
-	<li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a> 
-
+<li><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a> 
 			
-		- {{ post.author.first_name }} {{ post.author.last_name }} -  
-		{{ post.published_date }} <small>
-
-		{% if user.is_authenticated %}	
-			- <a href="{% url 'update_post' post.pk %}">(Edit)</a> 
-
-			<a href="{% url 'delete_post' post.pk %}">(Delete)</a>
-		{% endif %}
+- {{ post.author.first_name }}
+- {{ post.author.last_name }}
+- {{ post.published_date }} <small>
 
 	</small> <br/>
 	{ post.body|slice:":200"|safe }}</li>
 {% endfor %}
-</ul>
+
 
 
 
